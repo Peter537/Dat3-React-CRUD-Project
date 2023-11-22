@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { login, register } from "../api/api";
 
 function Login() {
-  async function loginHandler() {
+  async function logHandler(apiFunction) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
@@ -12,28 +12,9 @@ function Login() {
       return;
     }
 
-    const user = await login(username, password);
+    const user = await apiFunction(username, password);
     if (user === null) {
-      alert("Invalid username or password.");
-      return;
-    }
-
-    sessionStorage.setItem("user", JSON.stringify(user));
-    window.location.replace("/mainpage");
-  }
-
-  async function registerHandler() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    if (username === "" || password === "") {
-      alert("Please enter a username and password.");
-      return;
-    }
-
-    const user = await register(username, password);
-    if (user === null) {
-      alert("Username already exists.");
+      alert("Username already exists or is invalid.");
       return;
     }
 
@@ -88,7 +69,7 @@ function Login() {
             <button
               type="button"
               className="btn btn-primary"
-              onClick={loginHandler}
+              onClick={() => logHandler(login)}
             >
               Login
             </button>
@@ -97,7 +78,7 @@ function Login() {
             <button
               type="button"
               className="btn btn-outline-primary"
-              onClick={registerHandler}
+              onClick={() => logHandler(register)}
             >
               Register
             </button>
