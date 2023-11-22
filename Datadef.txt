@@ -3,3 +3,10 @@ User:
     name - string
     password - string
 
+Card:
+    id - +1 ift til størrelsen af mængden
+    name - string
+    desc - string
+    attack - integer, forventet lave tal
+    health - integer, forventet lave tal
+    cost - integer, forventet lave tal
