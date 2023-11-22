@@ -5,6 +5,21 @@
         "password": "test"
     }],
     "card": [{
-
+        "id": 1,
+        "name": "test",
+        "desc": "This is a test card",
+        "attack": 1,
+        "health": 1,
+        "cost": 1
+    }],
+    "game": [{
+        "players": [{
+            "id": 1,
+            "hasplayed": true
+        },
+        {
+            "id": 2,
+            "hasplayed": true
+        }]
     }]
 }
