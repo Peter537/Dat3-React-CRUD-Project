@@ -1,11 +1,17 @@
 import "./styles/App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/Login";
+import CardMaker from "./pages/CardMaker";
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/maker" element={<CardMaker />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
