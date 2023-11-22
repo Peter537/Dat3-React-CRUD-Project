@@ -25,10 +25,10 @@ function Login() {
   return (
     <div className="container">
       <div className="card">
-        <div className="card-header">Login</div>
-        <div className="card-body">
+        <div className="card-header"></div>
+        <div className="card-body mt-4">
           <h5 className="card-title">Welcome to untitled card game!</h5>
-          <p className="card-text">
+          <p className="card-text mb-5">
             If you already have an account, please login.
           </p>
           <div className="row">
@@ -48,7 +48,7 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row mb-3">
             <div className="col-sm-12">
               <div className="input-group mb-3">
                 <span className="input-group-text" id="basic-addon1">
@@ -65,7 +65,7 @@ function Login() {
               </div>
             </div>
           </div>
-          <div className="row ms-2 me-2">
+          <div className="row ms-2 me-2 mb-3">
             <button
               type="button"
               className="btn btn-primary"
@@ -74,7 +74,7 @@ function Login() {
               Login
             </button>
           </div>
-          <div className="row ms-2 me-2 mt-2">
+          <div className="row ms-2 me-2 mt-2 mb-2">
             <button
               type="button"
               className="btn btn-outline-primary"
