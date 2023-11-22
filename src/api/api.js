@@ -28,7 +28,6 @@ export async function login(name, password) {
 export async function register(name, password) {
   const users = await getAllUsers();
   if (users.find((user) => user.name === name)) {
-    alert("Username already taken");
     return null;
   }
   const url = `${BASE_URL}user`;
