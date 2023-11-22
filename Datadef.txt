@@ -1,0 +1,5 @@
+User:
+    id - baseret på crypto.getRandomValues
+    name - string
+    password - string
+
