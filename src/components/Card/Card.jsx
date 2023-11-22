@@ -3,7 +3,10 @@ import img from "./placeholder.svg";
 function Card({ data }) {
   return (
     <>
-      <div className="card" style={{ width: "18rem" }}>
+      <div
+        className="card border-dark"
+        style={{ width: "18rem", boxShadow: "1px 1px 1px 1px black" }}
+      >
         <img
           src={data?.image_url || img}
           className="card-img-top"
