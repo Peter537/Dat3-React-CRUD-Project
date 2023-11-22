@@ -6,7 +6,7 @@ function CardGrid({ cards }) {
     <div className="row row-cols-2 row-cols-md-4 g-2">
       {cards.map((card, index) => {
         return (
-          <div className="col">
+          <div className="col" key={index}>
             {" "}
             <Card key={index} {...card} />
           </div>
