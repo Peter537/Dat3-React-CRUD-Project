@@ -48,3 +48,52 @@ export async function register(name, password) {
 }
 
 // #endregion
+
+// #region MainPage
+
+export async function createGame(game) {
+  const url = `${BASE_URL}game`;
+  const method = "POST";
+  const body = game;
+
+  await fetchData(
+    url,
+    (data) => {
+      // TODO: What to do hvis der ik skal noget response tilbage?
+      console.log(data);
+    },
+    method,
+    body
+  );
+}
+
+export async function readGamesByUser(userId) {
+  const url = `${BASE_URL}game`;
+  let games = [];
+  await fetchData(url, (data) => {
+    games = data;
+  });
+
+  return games; // TODO: create filter
+}
+
+export async function readGamesUserIsNotIn(userId) {
+  const url = `${BASE_URL}game`;
+  let games = [];
+  await fetchData(url, (data) => {
+    games = data;
+  });
+
+  return games; // TODO: create filter
+}
+
+export async function updateUserInfo(user) {
+  const url = `${BASE_URL}user`;
+  const method = "PUT";
+  const body = user;
+
+  // Hvordan opdateres user med denne slags db?
+  await fetchData(url, () => {}, method, body);
+}
+
+// #endregion

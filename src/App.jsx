@@ -4,11 +4,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import CardMaker from "./pages/CardMaker";
 import Header from "./components/Header";
+import MainPage from "./pages/MainPage";
 
 function App() {
-  document
-    .getElementsByTagName("body")[0]
-    .setAttribute("data-bs-theme", "dark");
+  document.getElementsByTagName("body")[0].setAttribute("data-bs-theme", "dark");
 
   return (
     <>
@@ -16,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/maker" element={<CardMaker />} />
+          <Route path="/mainpage" element={<MainPage />} />
         </Routes>
       </BrowserRouter>
       <Header />
