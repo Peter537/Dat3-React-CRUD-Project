@@ -12,7 +12,8 @@ Card:
     attack - integer, forventet lave tal
     health - integer, forventet lave tal
     cost - integer, forventet lave tal
-    createdBy - 
+    createdBy - a user id
+    image_url - image on card, if there is one
 
 
 
