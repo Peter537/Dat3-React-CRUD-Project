@@ -25,7 +25,7 @@ function CardMaker() {
                 onChange={(e) => setImage(e.target.value)}
               ></input>
             </div>
-            <div>
+            <div className="form-group mt-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -41,7 +41,8 @@ function CardMaker() {
               </svg>
               <input
                 type="number"
-                className="form-control-sm text-center"
+                className="form-control form-control-sm text-center"
+                style={{ width: "20%", display: "inline" }}
               ></input>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -55,13 +56,14 @@ function CardMaker() {
               </svg>
               <input
                 type="number"
-                className="form-control-sm text-center"
+                className="form-control form-control-sm text-center"
+                style={{ width: "20%", display: "inline" }}
               ></input>
             </div>
             <div className="card-body">
               <input
                 type="text"
-                className="form-control-md text-center"
+                className="form-control form-control-md text-center"
                 placeholder="Title"
                 id="title"
               ></input>
