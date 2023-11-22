@@ -12,6 +12,7 @@ Card:
     attack - integer, forventet lave tal
     health - integer, forventet lave tal
     cost - integer, forventet lave tal
+    createdBy - 
 
 
 
