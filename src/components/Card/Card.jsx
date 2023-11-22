@@ -18,7 +18,9 @@ function Card({ data }) {
           alt="..."
         ></img>
         <div className="card-img-overlay" style={{ height: "10%" }}>
-          <ManaIcon />
+          {(data?.mana || [1, 2]).map((index) => {
+            return <ManaIcon key={index} />;
+          })}
         </div>
         <div className="mt-2">
           <HealthIcon />
