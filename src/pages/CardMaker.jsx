@@ -54,7 +54,9 @@ function CardMaker() {
                   className="btn btn-primary"
                   value={"- Mana"}
                   style={{ width: "100%" }}
-                  onClick={() => setMana(mana - 1)}
+                  onClick={() => {
+                    if (mana != 0) setMana(mana - 1);
+                  }}
                 ></input>
               </div>
             </div>
