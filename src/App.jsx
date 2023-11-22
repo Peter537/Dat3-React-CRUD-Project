@@ -7,7 +7,9 @@ import Header from "./components/Header";
 import MainPage from "./pages/MainPage";
 
 function App() {
-  document.getElementsByTagName("body")[0].setAttribute("data-bs-theme", "dark");
+  document
+    .getElementsByTagName("body")[0]
+    .setAttribute("data-bs-theme", sessionStorage.getItem("theme") || "dark");
 
   return (
     <>

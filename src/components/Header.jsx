@@ -1,11 +1,14 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ThemeIcon from "./Theme changer/ThemeIcon";
 
 function Header() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg navbar-dark bg-dark"
+        className={`navbar navbar-expand-lg navbar-${sessionStorage.getItem(
+          "theme"
+        )} bg-${sessionStorage.getItem("theme")}`}
         style={{ display: "block", position: "absolute", top: 1 }}
       >
         <button
@@ -31,6 +34,9 @@ function Header() {
               <a className="nav-link" href="/maker">
                 Card Maker
               </a>
+            </li>
+            <li>
+              <ThemeIcon />
             </li>
           </ul>
         </div>
