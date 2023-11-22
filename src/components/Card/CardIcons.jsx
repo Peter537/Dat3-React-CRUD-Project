@@ -5,7 +5,7 @@ export function ManaIcon() {
         xmlns="http://www.w3.org/2000/svg"
         width="16"
         height="16"
-        fill="currentColor"
+        fillRule="currentColor"
         className="bi bi-droplet-half"
         viewBox="0 0 16 16"
       >

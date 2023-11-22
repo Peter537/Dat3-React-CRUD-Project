@@ -1,5 +1,5 @@
 import img from "./placeholder.svg";
-import { HealthIcon, AttackIcon } from "./CardIcons";
+import { HealthIcon, AttackIcon, ManaIcon } from "./CardIcons";
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
@@ -17,6 +17,9 @@ function Card({ data }) {
           className="card-img-top"
           alt="..."
         ></img>
+        <div className="card-img-overlay" style={{ height: "10%" }}>
+          <ManaIcon />
+        </div>
         <div className="mt-2">
           <HealthIcon />
           <label>{data?.health || 0}</label>
