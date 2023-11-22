@@ -1,10 +1,12 @@
+ID er auto incrementing 
+
 User:
-    id - baseret på crypto.getRandomValues
+    id - auto incr
     name - string
     password - string
 
 Card:
-    id - +1 ift til størrelsen af mængden
+    id - auto incr
     name - string
     desc - string
     attack - integer, forventet lave tal
