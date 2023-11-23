@@ -27,8 +27,8 @@ function Header() {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <NavItem link="/maker">Card Maker</NavItem>
             <NavItem link={"/mainpage"}>Main page</NavItem>
+            <NavItem link="/maker">Card Maker</NavItem>
             <NavItem
               link={"/"}
               onClick={() => {
