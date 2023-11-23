@@ -29,7 +29,6 @@ function Card({ data, click, button_text }) {
           <AttackIcon />
           <label>{data?.attack || 0}</label>
         </div>
-
         <div className="card-body">
           <h5 className="card-title">{data?.name || "Card title"}</h5>
           <p className="card-text">
