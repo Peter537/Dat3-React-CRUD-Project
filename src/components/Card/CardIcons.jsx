@@ -58,3 +58,33 @@ export function HealthIcon() {
     </>
   );
 }
+
+import React from "react";
+
+export function Icon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="680.764"
+      height="528.354"
+      viewBox="0 0 180.119 139.794"
+    >
+      <g paintOrder="fill markers stroke" transform="translate(-13.59 -66.639)">
+        <path fill="#d0d0d0" d="M13.591 66.639H193.71v139.794H13.591z"></path>
+        <path
+          fill="#fff"
+          d="M118.507 133.514l-34.249 34.249-15.968-15.968-41.938 41.937h152.374z"
+          opacity="0.675"
+        ></path>
+        <circle
+          cx="58.217"
+          cy="108.555"
+          r="11.773"
+          fill="#fff"
+          opacity="0.675"
+        ></circle>
+        <path fill="none" d="M26.111 77.634h152.614v116.099H26.111z"></path>
+      </g>
+    </svg>
+  );
+}
