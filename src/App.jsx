@@ -9,7 +9,10 @@ import MainPage from "./pages/MainPage";
 function App() {
   document
     .getElementsByTagName("body")[0]
-    .setAttribute("data-bs-theme", sessionStorage.getItem("theme") || "dark");
+    .setAttribute(
+      "data-bs-theme",
+      sessionStorage.getItem("theme") || sessionStorage.setItem("theme", "dark")
+    );
 
   return (
     <>
