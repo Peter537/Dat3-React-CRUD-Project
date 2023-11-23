@@ -3,6 +3,7 @@ import CardGrid from "../components/Card/CardGrid";
 import img from "../components/Card/placeholder.png";
 import { AttackIcon, HealthIcon, ManaIcon } from "../components/Card/CardIcons";
 import { createCard, deleteCard, getAllCards } from "../api/api";
+import "../components/Card/Card.css";
 
 function CardMaker() {
   const [cards, setCards] = useState([]);
@@ -72,7 +73,7 @@ function CardMaker() {
         <div id="cardParent" className="col-sm-4">
           {" "}
           <div className="card" style={{ width: "18rem" }}>
-            <img src={image || img} className="card-img" alt="..."></img>
+            <img src={image || img} className="card-img img"></img>
             <div
               className="card-img-overlay"
               style={{ height: "5%", marginTop: "-4%" }}
