@@ -39,7 +39,6 @@ function Header() {
             >
               {user ? "Logout" : "Login"}
             </NavItem>
-            ;
             <li>
               <ThemeIcon />
             </li>
