@@ -1,4 +1,4 @@
-import img from "./placeholder.svg";
+import img from "./placeholder.png";
 import { HealthIcon, AttackIcon, ManaIcon } from "./CardIcons";
 import "./Card.css";
 
@@ -19,11 +19,7 @@ function Card({ data, click, button_text }) {
         }}
       >
         <div>
-          <img
-            src={data?.image_url || img}
-            className="card-img-top img"
-            alt="..."
-          ></img>
+          <img src={data?.image_url || img} className="card-img-top img"></img>
         </div>
         <div className="card-img-overlay" style={{ height: "10%" }}>
           {(Array(data?.cost).fill(1) || [1, 2]).map((index) => {
