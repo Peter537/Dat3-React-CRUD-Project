@@ -18,7 +18,7 @@ function Card({ data, click, button_text }) {
           alt="..."
         ></img>
         <div className="card-img-overlay" style={{ height: "10%" }}>
-          {(data?.mana || [1, 2]).map((index) => {
+          {(Array(data?.cost).fill(1) || [1, 2]).map((index) => {
             return <ManaIcon key={index} />;
           })}
         </div>
