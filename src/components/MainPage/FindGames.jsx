@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 function FindGames(props) {
-  const { findGames, loadFindGames } = props;
+  const { findGames, loadFindGames, joinOtherGame } = props;
 
   return (
     <>
@@ -19,9 +19,9 @@ function FindGames(props) {
             <tr key={game.id}>
               <td>{game.id}</td>
               <td>{game.status}</td>
-              <td>{game.opponent}</td>
+              <td>{`Player with ID '${game.players[0].id}'`}</td>
               <td>
-                <button>Join</button>
+                <button onClick={() => joinOtherGame(game.id)}>Join</button>
               </td>
             </tr>
           ))}

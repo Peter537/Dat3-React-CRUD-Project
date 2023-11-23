@@ -129,6 +129,75 @@
           "field": []
         }
       ]
+    },
+    {
+      "id": 1121190229,
+      "status": "NOT_STARTED",
+      "againstAI": true,
+      "currentPlayer": 0,
+      "maxMana": 0,
+      "players": [
+        {
+          "id": 2,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
+        },
+        {
+          "id": -1,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
+        }
+      ]
+    },
+    {
+      "id": 903179813,
+      "status": "NOT_STARTED",
+      "againstAI": true,
+      "currentPlayer": 0,
+      "maxMana": 0,
+      "players": [
+        {
+          "id": 4,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
+        },
+        {
+          "id": -1,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
+        }
+      ]
+    },
+    {
+      "id": 523497162,
+      "status": "NOT_STARTED",
+      "againstAI": false,
+      "currentPlayer": 0,
+      "maxMana": 0,
+      "players": [
+        {
+          "id": 2,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
+        },
+        {
+          "id": 1,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
+        }
+      ]
     }
   ]
 }

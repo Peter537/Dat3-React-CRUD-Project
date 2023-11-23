@@ -1,5 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { createGame, readGamesByUser, deleteGame, readGamesUserIsNotIn, updateUserInfo } from "../api/api.js";
+import {
+  createGame,
+  readGamesByUser,
+  deleteGame,
+  readGamesUserIsNotIn,
+  updateUserInfo,
+  getGameById,
+  updateGame,
+} from "../api/api.js";
 import { useEffect, useState } from "react";
 import UserInformation from "../components/MainPage/UserInformation.jsx";
 import YourGames from "../components/MainPage/YourGames.jsx";
@@ -96,6 +104,18 @@ function MainPage() {
     window.location.replace("/game");
   }
 
+  async function joinOtherGame(gameId) {
+    console.log("joinOtherGame");
+    let game = await getGameById(gameId);
+    if (game.players[1].id === 0) {
+      game.players[1].id = user.id;
+      await updateGame(game);
+      setGames([...games, game]);
+      sessionStorage.setItem("gameId", gameId);
+      window.location.replace("/game");
+    }
+  }
+
   return (
     <>
       <h1>Main Page</h1>
@@ -109,9 +129,9 @@ function MainPage() {
         <UserInformation user={user} changeName={changeName} changePassword={changePassword} />
       )}
       <h2>Your Games</h2>
-      <YourGames games={games} surrender={deleteAGame} joinGame={joinGame} />
+      <YourGames user={user} games={games} surrender={deleteAGame} joinGame={joinGame} />
       <h2>Find Games</h2>
-      <FindGames findGames={findGames} loadFindGames={loadFindGames} />
+      <FindGames findGames={findGames} loadFindGames={loadFindGames} joinOtherGame={joinOtherGame} />
     </>
   );
 }

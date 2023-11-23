@@ -135,4 +135,22 @@ export async function updateUserInfo(user) {
   await fetchData(url, () => {}, method, body);
 }
 
+export async function getGameById(gameId) {
+  const url = `${BASE_URL}game/${gameId}`;
+  let game = null;
+  await fetchData(url, (data) => {
+    game = data;
+  });
+
+  return game;
+}
+
+export async function updateGame(game) {
+  const url = `${BASE_URL}game/${game.id}`;
+  const method = "PUT";
+  const body = game;
+
+  await fetchData(url, () => {}, method, body);
+}
+
 // #endregion
