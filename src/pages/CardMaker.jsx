@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CardGrid from "../components/Card/CardGrid";
-import img from "../components/Card/placeholder.svg";
+import img from "../components/Card/placeholder.png";
 import { AttackIcon, HealthIcon, ManaIcon } from "../components/Card/CardIcons";
 import { createCard, deleteCard, getAllCards } from "../api/api";
 
@@ -25,6 +25,12 @@ function CardMaker() {
     }
   }),
     [];
+
+  // useWebSocket(WS_URL, {
+  //   onOpen: () => {
+  //     console.log("WebSocket connection established.");
+  //   },
+  // });
 
   function createHandler() {
     const name = document.getElementById("title")?.value;
