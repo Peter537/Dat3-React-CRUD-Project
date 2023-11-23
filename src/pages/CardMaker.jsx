@@ -24,7 +24,7 @@ function CardMaker() {
       document.getElementById("cardParent").style.marginLeft = "auto";
     }
   }),
-    [cards];
+    [];
 
   function createHandler() {
     const name = document.getElementById("title")?.value;
