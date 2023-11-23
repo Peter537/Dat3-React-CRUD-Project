@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import CardMaker from "./pages/CardMaker";
 import Header from "./components/Header/Header";
 import MainPage from "./pages/MainPage";
+import GameBoard from "./pages/GameBoard";
 
 function App() {
   document
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/maker" element={<CardMaker />} />
           <Route path="/mainpage" element={<MainPage />} />
+          <Route path="/game" element={<GameBoard />} />
         </Routes>
       </BrowserRouter>
       <Header />
