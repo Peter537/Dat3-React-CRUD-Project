@@ -5,7 +5,7 @@ import { HealthIcon, AttackIcon, ManaIcon } from "./CardIcons";
   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
 ></link>;
 
-function Card({ data }) {
+function Card({ data, click, button_text }) {
   return (
     <>
       <div
@@ -38,9 +38,9 @@ function Card({ data }) {
           </p>
           <button
             className="btn btn-primary"
-            onClick={data?.click || (() => alert("No actions"))}
+            onClick={click || (() => alert("No actions"))}
           >
-            {data?.button_text || "Go somewhere"}
+            {button_text || "Go somewhere"}
           </button>
         </div>
       </div>
