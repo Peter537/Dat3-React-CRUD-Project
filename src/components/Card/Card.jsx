@@ -1,5 +1,7 @@
 import img from "./placeholder.svg";
 import { HealthIcon, AttackIcon, ManaIcon } from "./CardIcons";
+import "./Card.css";
+
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
@@ -10,13 +12,19 @@ function Card({ data, click, button_text }) {
     <>
       <div
         className="card border-dark"
-        style={{ width: "18rem", boxShadow: "1px 1px 1px 1px black" }}
+        style={{
+          width: "18rem",
+          boxShadow: "1px 1px 1px 1px black",
+          minHeight: "100%",
+        }}
       >
-        <img
-          src={data?.image_url || img}
-          className="card-img-top"
-          alt="..."
-        ></img>
+        <div>
+          <img
+            src={data?.image_url || img}
+            className="card-img-top img"
+            alt="..."
+          ></img>
+        </div>
         <div className="card-img-overlay" style={{ height: "10%" }}>
           {(Array(data?.cost).fill(1) || [1, 2]).map((index) => {
             return (
@@ -37,13 +45,13 @@ function Card({ data, click, button_text }) {
             {data?.desc ||
               "Some quick example text to build on the card title and make up the bulk of the card's content."}
           </p>
-          <button
-            className="btn btn-primary"
-            onClick={click || (() => alert("No actions"))}
-          >
-            {button_text || "Go somewhere"}
-          </button>
         </div>
+        <button
+          className="btn btn-primary"
+          onClick={click || (() => alert("No actions"))}
+        >
+          {button_text || "Go somewhere"}
+        </button>
       </div>
     </>
   );
