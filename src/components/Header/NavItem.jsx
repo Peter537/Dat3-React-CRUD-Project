@@ -1,6 +1,6 @@
-function NavItem({ children, link }) {
+function NavItem({ children, link, onClick }) {
   return (
-    <li className="nav-item">
+    <li className="nav-item" onClick={onClick}>
       <a className="nav-link" href={link}>
         {children}
       </a>

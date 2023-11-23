@@ -4,6 +4,7 @@ import ThemeIcon from "../Theme changer/ThemeIcon";
 import NavItem from "./NavItem";
 
 function Header() {
+  var user = sessionStorage.getItem("user");
   return (
     <>
       <nav
@@ -28,7 +29,17 @@ function Header() {
           <ul className="navbar-nav mr-auto">
             <NavItem link="/maker">Card Maker</NavItem>
             <NavItem link={"/mainpage"}>Main page</NavItem>
-            <NavItem link={"/"}>Login</NavItem>
+            <NavItem
+              link={"/"}
+              onClick={() => {
+                if (user) {
+                  sessionStorage.removeItem("user");
+                }
+              }}
+            >
+              {user ? "Logout" : "Login"}
+            </NavItem>
+            ;
             <li>
               <ThemeIcon />
             </li>
