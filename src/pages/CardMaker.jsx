@@ -10,6 +10,7 @@ function CardMaker() {
   const [mana, setMana] = useState(0);
 
   useEffect(() => {
+    // Todo: add a delay to this so that it doesn't load constantly
     async function loadCards() {
       const cards = await getAllCards();
       setCards(cards);
