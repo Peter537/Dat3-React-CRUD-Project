@@ -4,6 +4,7 @@ import img from "../components/Card/placeholder.png";
 import { AttackIcon, HealthIcon, ManaIcon } from "../components/Card/CardIcons";
 import { createCard, deleteCard, getAllCards } from "../api/api";
 import "../components/Card/Card.css";
+import useWebSocket from "react-use-websocket";
 
 function CardMaker() {
   const [cards, setCards] = useState([]);
@@ -26,12 +27,6 @@ function CardMaker() {
     }
   }),
     [];
-
-  // useWebSocket(WS_URL, {
-  //   onOpen: () => {
-  //     console.log("WebSocket connection established.");
-  //   },
-  // });
 
   function createHandler() {
     const name = document.getElementById("title")?.value;
