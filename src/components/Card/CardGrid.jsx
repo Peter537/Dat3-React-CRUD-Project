@@ -8,6 +8,7 @@ function CardGrid({ cards, click, button_text, max_cards = 100 }) {
   $(".card-grid").sortable({
     opacity: 0.9,
     placeholder: "sortable-placeholder",
+    tolerance: "pointer",
   });
   return (
     <div
