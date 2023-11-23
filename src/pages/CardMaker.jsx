@@ -16,6 +16,11 @@ function CardMaker() {
       const allCards = await getAllCards();
       if (JSON.stringify(cards) !== JSON.stringify(allCards))
         setCards(allCards);
+
+      // setTimeout(() => {
+      //   console.log("Reloading cards");
+      //   loadCards();
+      // }, 1000);
     }
 
     loadCards();
@@ -26,12 +31,6 @@ function CardMaker() {
     }
   }),
     [];
-
-  // useWebSocket(WS_URL, {
-  //   onOpen: () => {
-  //     console.log("WebSocket connection established.");
-  //   },
-  // });
 
   function createHandler() {
     const name = document.getElementById("title")?.value;
