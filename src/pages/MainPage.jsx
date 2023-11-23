@@ -5,19 +5,6 @@ import UserInformation from "../components/MainPage/UserInformation.jsx";
 import YourGames from "../components/MainPage/YourGames.jsx";
 import FindGames from "../components/MainPage/FindGames.jsx";
 
-const deleteGames2 = [
-  {
-    id: 4,
-    status: "NOT_STARTED",
-    opponent: "player: 1",
-  },
-  {
-    id: 5,
-    status: "NOT_STARTED",
-    opponent: "player: 2",
-  },
-];
-
 function MainPage() {
   const [games, setGames] = useState([]);
   const [findGames, setFindGames] = useState([]); // TODO: Implement findGames
@@ -40,11 +27,6 @@ function MainPage() {
   }, [user]);
 
   async function createNewGame(againstAI) {
-    if (!againstAI) {
-      alert("Not implemented yet");
-      return;
-    }
-
     console.log("createNewGame");
     const game = {
       id: crypto.getRandomValues(new Uint32Array(1))[0],
@@ -99,9 +81,8 @@ function MainPage() {
 
   async function loadFindGames() {
     console.log("loadFindGames");
-    let g = await readGamesUserIsNotIn(user.id);
-    g = deleteGames2; // TODO: DELETE WHEN PLAYER VS PLAYER IS IMPLEMENTED
-    setFindGames(g);
+    let foundGames = await readGamesUserIsNotIn(user.id);
+    setFindGames(foundGames);
   }
 
   async function deleteAGame(id) {
