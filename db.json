@@ -85,14 +85,48 @@
   ],
   "game": [
     {
+      "id": 3844971473,
+      "status": "NOT_STARTED",
+      "againstAI": true,
+      "currentPlayer": 0,
+      "maxMana": 0,
       "players": [
         {
           "id": 1,
-          "hasplayed": true
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
         },
         {
-          "id": 2,
-          "hasplayed": true
+          "id": -1,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
+        }
+      ]
+    },
+    {
+      "id": 2126652442,
+      "status": "NOT_STARTED",
+      "againstAI": true,
+      "currentPlayer": 0,
+      "maxMana": 0,
+      "players": [
+        {
+          "id": 1,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
+        },
+        {
+          "id": -1,
+          "mana": 0,
+          "health": 30,
+          "hand": [],
+          "field": []
         }
       ]
     }

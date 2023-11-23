@@ -92,39 +92,42 @@ export async function createGame(game) {
   const method = "POST";
   const body = game;
 
-  await fetchData(
-    url,
-    (data) => {
-      // TODO: What to do hvis der ik skal noget response tilbage?
-      console.log(data);
-    },
-    method,
-    body
-  );
+  await fetchData(url, () => {}, method, body);
+}
+
+async function readAllGames() {
+  const url = `${BASE_URL}game`;
+  let games = [];
+  await fetchData(url, (data) => {
+    games = data;
+  });
+
+  return games;
 }
 
 export async function readGamesByUser(userId) {
-  const url = `${BASE_URL}game`;
-  let games = [];
-  await fetchData(url, (data) => {
-    games = data;
+  return (await readAllGames()).filter((game) => {
+    let players = game.players;
+    return players.find((player) => player.id === userId);
   });
-
-  return games; // TODO: create filter
 }
 
 export async function readGamesUserIsNotIn(userId) {
-  const url = `${BASE_URL}game`;
-  let games = [];
-  await fetchData(url, (data) => {
-    games = data;
+  return (await readAllGames()).filter((game) => {
+    let players = game.players;
+    return !players.find((player) => player.id === userId) && !game.againstAI;
   });
+}
 
-  return games; // TODO: create filter
+export async function deleteGame(gameId) {
+  const url = `${BASE_URL}game/${gameId}`;
+  const method = "DELETE";
+
+  await fetchData(url, () => {}, method);
 }
 
 export async function updateUserInfo(user) {
-  const url = `${BASE_URL}user`;
+  const url = `${BASE_URL}user/` + user.id;
   const method = "PUT";
   const body = user;
 
