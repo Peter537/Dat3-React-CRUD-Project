@@ -5,7 +5,10 @@ import "../../../node_modules/jquery-ui/dist/jquery-ui.js";
 
 // https://getbootstrap.com/docs/5.3/components/card/#grid-cards
 function CardGrid({ cards, click, button_text, max_cards = 100 }) {
-  $(".card-grid").sortable();
+  $(".card-grid").sortable({
+    opacity: 0.9,
+    placeholder: "sortable-placeholder",
+  });
   return (
     <div
       className="row row-cols-2 row-cols-sm-4 g-2 justify-content-start card-grid"
