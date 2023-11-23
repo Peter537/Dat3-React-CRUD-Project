@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CardGrid from "../components/Card/CardGrid";
 import img from "../components/Card/placeholder.svg";
 import { AttackIcon, HealthIcon, ManaIcon } from "../components/Card/CardIcons";
-import { createCard, getAllCards } from "../api/api";
+import { createCard, deleteCard, getAllCards } from "../api/api";
 
 function CardMaker() {
   const [cards, setCards] = useState([]);
@@ -14,7 +14,13 @@ function CardMaker() {
       const cards = await getAllCards();
       setCards(cards);
     }
+
     loadCards();
+    if (cards.length > 3) {
+      document.getElementById("cardParent").style.marginLeft = "4%";
+    } else {
+      document.getElementById("cardParent").style.marginLeft = "auto";
+    }
   }),
     [cards];
 
@@ -45,13 +51,17 @@ function CardMaker() {
     createCard(data);
   }
 
+  function deleteCardHandler(id) {
+    deleteCard(id);
+  }
+
   return (
     <div className="container">
       <h1>Card Maker</h1>
       <hr></hr>
       <div className="row mt-4 mb-4">
         <div className="col-sm-4"></div>
-        <div className="col-sm-4 ms-5">
+        <div id="cardParent" className="col-sm-4">
           {" "}
           <div className="card" style={{ width: "18rem" }}>
             <img src={image || img} className="card-img" alt="..."></img>
@@ -143,7 +153,11 @@ function CardMaker() {
       </div>
       <h2>Existing cards</h2>
       <hr></hr>
-      <CardGrid cards={cards} />
+      <CardGrid
+        cards={cards}
+        click={deleteCardHandler}
+        button_text={"Delete"}
+      />
     </div>
   );
 }
