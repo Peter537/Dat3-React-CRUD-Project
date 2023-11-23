@@ -76,6 +76,13 @@ export async function createCard(card) {
   );
 }
 
+export async function deleteCard(cardId) {
+  const url = `${BASE_URL}card/${cardId}`;
+  const method = "DELETE";
+
+  await fetchData(url, () => {}, method);
+}
+
 // #endregion
 
 // #region MainPage
