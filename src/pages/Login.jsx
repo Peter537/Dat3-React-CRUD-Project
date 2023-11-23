@@ -55,7 +55,7 @@ function Login() {
                   @
                 </span>
                 <input
-                  type="text"
+                  type="password"
                   className="form-control"
                   placeholder="Password"
                   aria-label="Password"
