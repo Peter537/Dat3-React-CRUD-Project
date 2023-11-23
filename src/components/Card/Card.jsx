@@ -19,7 +19,9 @@ function Card({ data, click, button_text }) {
         ></img>
         <div className="card-img-overlay" style={{ height: "10%" }}>
           {(Array(data?.cost).fill(1) || [1, 2]).map((index) => {
-            return <ManaIcon key={index} />;
+            return (
+              <ManaIcon key={crypto.getRandomValues(new Uint32Array(1))[0]} />
+            );
           })}
         </div>
         <div className="mt-2">
