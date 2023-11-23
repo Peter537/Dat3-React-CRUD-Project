@@ -4,7 +4,6 @@ import img from "../components/Card/placeholder.png";
 import { AttackIcon, HealthIcon, ManaIcon } from "../components/Card/CardIcons";
 import { createCard, deleteCard, getAllCards } from "../api/api";
 import "../components/Card/Card.css";
-import useWebSocket from "react-use-websocket";
 
 function CardMaker() {
   const [cards, setCards] = useState([]);
@@ -17,6 +16,11 @@ function CardMaker() {
       const allCards = await getAllCards();
       if (JSON.stringify(cards) !== JSON.stringify(allCards))
         setCards(allCards);
+
+      // setTimeout(() => {
+      //   console.log("Reloading cards");
+      //   loadCards();
+      // }, 1000);
     }
 
     loadCards();
