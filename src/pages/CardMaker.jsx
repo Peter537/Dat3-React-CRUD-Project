@@ -16,18 +16,20 @@ function CardMaker() {
       if (JSON.stringify(cards) !== JSON.stringify(allCards))
         setCards(allCards);
       console.log("Cards loaded");
+
+      if (allCards.length > 3) {
+        document.getElementById("cardParent").style.marginLeft = "3%";
+      } else if (allCards.length > 2) {
+        document.getElementById("cardParent").style.marginLeft = "-2%";
+      } else {
+        document.getElementById("cardParent").style.marginLeft = "-10%";
+      }
     }
     loadCards();
 
     const interval = setInterval(() => {
       loadCards();
     }, 2000);
-
-    if (cards.length > 3) {
-      document.getElementById("cardParent").style.marginLeft = "4%";
-    } else {
-      document.getElementById("cardParent").style.marginLeft = "auto";
-    }
 
     return () => clearInterval(interval);
   }, []);
@@ -70,7 +72,6 @@ function CardMaker() {
       <div className="row mt-4 mb-4">
         <div className="col-sm-4"></div>
         <div id="cardParent" className="col-sm-4">
-          {" "}
           <div className="card" style={{ width: "18rem" }}>
             <img src={image || img} className="card-img img"></img>
             <div
