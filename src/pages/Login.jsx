@@ -25,6 +25,7 @@ function Login() {
   }
 
   function dragElement(e) {
+    // #region Moveable Card
     var elmnt = document.getElementById("card");
     var pos1 = 0,
       pos2 = 0,
@@ -75,6 +76,47 @@ function Login() {
       document.onmouseup = null;
       document.onmousemove = null;
     }
+
+    // #endregion
+
+    // #region Resizable Card
+    let isDragging = false;
+    let initialX = 0;
+    let initialY = 0;
+    let initialWidth = 0;
+    let initialHeight = 0;
+
+    const draggableCard = document.getElementById("cardBody");
+
+    draggableCard.addEventListener("mousedown", function (event) {
+      isDragging = true;
+      initialX = event.clientX;
+      initialY = event.clientY;
+      initialWidth = parseInt(
+        window.getComputedStyle(draggableCard).getPropertyValue("width")
+      );
+      initialHeight = parseInt(
+        window.getComputedStyle(draggableCard).getPropertyValue("height")
+      );
+    });
+
+    document.addEventListener("mousemove", function (event) {
+      if (!isDragging) return;
+      if (event.target.tagName.toLowerCase() !== "div") return;
+      const widthChange = event.clientX - initialX;
+      const newWidth = initialWidth + widthChange;
+      draggableCard.style.width = newWidth + "px";
+
+      const heightChange = event.clientY - initialY;
+      const newHeight = initialHeight + heightChange;
+      draggableCard.style.height = newHeight + "px";
+    });
+
+    document.addEventListener("mouseup", function () {
+      isDragging = false;
+    });
+
+    // #endregion
   }
 
   return (
@@ -85,7 +127,7 @@ function Login() {
           className="card-header"
           onClick={dragElement}
         ></div>
-        <div className="card-body mt-4">
+        <div id="cardBody" className="card-body mt-4">
           <h5 className="card-title">Welcome to untitled card game!</h5>
           <p className="card-text mb-5">
             If you already have an account, please login.
