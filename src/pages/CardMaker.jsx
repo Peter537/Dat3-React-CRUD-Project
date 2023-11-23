@@ -11,26 +11,26 @@ function CardMaker() {
   const [mana, setMana] = useState(0);
 
   useEffect(() => {
-    // Todo: add a delay to this so that it doesn't load constantly
     async function loadCards() {
       const allCards = await getAllCards();
       if (JSON.stringify(cards) !== JSON.stringify(allCards))
         setCards(allCards);
-
-      // setTimeout(() => {
-      //   console.log("Reloading cards");
-      //   loadCards();
-      // }, 1000);
+      console.log("Cards loaded");
     }
-
     loadCards();
+
+    const interval = setInterval(() => {
+      loadCards();
+    }, 2000);
+
     if (cards.length > 3) {
       document.getElementById("cardParent").style.marginLeft = "4%";
     } else {
       document.getElementById("cardParent").style.marginLeft = "auto";
     }
-  }),
-    [];
+
+    return () => clearInterval(interval);
+  }, []);
 
   function createHandler() {
     const name = document.getElementById("title")?.value;
