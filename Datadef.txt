@@ -17,4 +17,21 @@ Card:
 
 
 
-Game logic:
+Game board logic:
+
+    - Max 4 cards on the field for each player
+    - a player can hold up to 4 cards on hand (?)
+    - a player can choose what slot to place their selected card
+      * the selected slot will only be able to either attack the slot infront of it, otherwise it will attack the player
+
+    currentPlayer - between (player) 1 & 2,
+    player1Mana - integer (starts 0)
+    player2Mana - integer (starts 0)
+    maxMana - integer (starts 0)
+    player1Health - integer(starts 30)
+    player2Health - integer(starts 30)
+    player1Hand: []
+    player2Hand: [],
+    player1Field: [],
+    player2Field: [],
+    
