@@ -1,13 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CardGrid from "../components/Card/CardGrid";
 import img from "../components/Card/placeholder.svg";
 import { AttackIcon, HealthIcon, ManaIcon } from "../components/Card/CardIcons";
+import { createCard, getAllCards } from "../api/api";
 
 function CardMaker() {
+  const [cards, setCards] = useState([]);
   const [image, setImage] = useState(img);
   const [mana, setMana] = useState(0);
 
-  function createHandler() {}
+  useEffect(() => {
+    async function loadCards() {
+      const cards = await getAllCards();
+      setCards(cards);
+    }
+    loadCards();
+  }),
+    [cards];
+
+  function createHandler() {
+    const name = document.getElementById("title")?.value;
+    const desc = document.getElementById("desc")?.value;
+    const attack = document.getElementById("attack")?.value;
+    const health = document.getElementById("health")?.value;
+    const cost = mana;
+    const createdBy = JSON.parse(sessionStorage.getItem("user"))?.name;
+    const image_url = image;
+
+    if (!name || !desc || !attack || !health || !createdBy) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const data = {
+      name,
+      desc,
+      attack,
+      health,
+      cost,
+      createdBy,
+      image_url,
+    };
+
+    createCard(data);
+  }
 
   return (
     <div className="container">
@@ -34,6 +70,7 @@ function CardMaker() {
                 type="text"
                 className="form-control text-center"
                 placeholder="Image URL"
+                id="image"
                 onChange={(e) => setImage(e.target.value)}
               ></input>
             </div>
@@ -65,6 +102,8 @@ function CardMaker() {
               <input
                 type="number"
                 className="form-control form-control-sm text-center"
+                id="health"
+                defaultValue={0}
                 style={{ width: "20%", display: "inline" }}
               ></input>
 
@@ -72,6 +111,8 @@ function CardMaker() {
               <input
                 type="number"
                 className="form-control form-control-sm text-center"
+                id="attack"
+                defaultValue={0}
                 style={{ width: "20%", display: "inline" }}
               ></input>
             </div>
@@ -86,6 +127,7 @@ function CardMaker() {
                 <textarea
                   className="form-control text-center"
                   rows={4}
+                  id="desc"
                   defaultValue={
                     "Some quick example text to build on the card title and make up the bulk of the card's content."
                   }
@@ -101,7 +143,7 @@ function CardMaker() {
       </div>
       <h2>Existing cards</h2>
       <hr></hr>
-      <CardGrid cards={[1, 2, 3, 4]} />
+      <CardGrid cards={cards} />
     </div>
   );
 }
