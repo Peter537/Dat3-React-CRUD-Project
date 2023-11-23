@@ -8,7 +8,7 @@ function CardGrid({ cards }) {
         return (
           <div className="col" key={index}>
             {" "}
-            <Card key={index} {...card} />
+            <Card key={index} data={card} />
           </div>
         );
       })}
