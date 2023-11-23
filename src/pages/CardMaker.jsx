@@ -12,8 +12,9 @@ function CardMaker() {
   useEffect(() => {
     // Todo: add a delay to this so that it doesn't load constantly
     async function loadCards() {
-      const cards = await getAllCards();
-      setCards(cards);
+      const allCards = await getAllCards();
+      if (JSON.stringify(cards) !== JSON.stringify(allCards))
+        setCards(allCards);
     }
 
     loadCards();
