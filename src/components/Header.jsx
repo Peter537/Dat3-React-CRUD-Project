@@ -9,7 +9,7 @@ function Header() {
         className={`navbar navbar-expand-lg navbar-${sessionStorage.getItem(
           "theme"
         )} bg-${sessionStorage.getItem("theme")}`}
-        style={{ display: "block", position: "absolute", top: 1 }}
+        style={{ display: "block", position: "absolute", top: 1, left: 1 }}
       >
         <button
           className="navbar-toggler"
