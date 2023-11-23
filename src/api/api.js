@@ -49,6 +49,35 @@ export async function register(name, password) {
 
 // #endregion
 
+// #region Card
+
+export async function getAllCards() {
+  const url = `${BASE_URL}card`;
+  let cards = [];
+  await fetchData(url, (data) => {
+    cards = data;
+  });
+
+  return cards;
+}
+
+export async function createCard(card) {
+  const url = `${BASE_URL}card`;
+  const method = "POST";
+  const body = card;
+
+  await fetchData(
+    url,
+    (data) => {
+      return data;
+    },
+    method,
+    body
+  );
+}
+
+// #endregion
+
 // #region MainPage
 
 export async function createGame(game) {
