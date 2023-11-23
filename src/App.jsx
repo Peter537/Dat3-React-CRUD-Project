@@ -3,7 +3,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import CardMaker from "./pages/CardMaker";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import MainPage from "./pages/MainPage";
 
 function App() {
