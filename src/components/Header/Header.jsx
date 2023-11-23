@@ -1,6 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ThemeIcon from "./Theme changer/ThemeIcon";
+import ThemeIcon from "../Theme changer/ThemeIcon";
+import NavItem from "./NavItem";
 
 function Header() {
   return (
@@ -25,16 +26,9 @@ function Header() {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <li className="nav-item active">
-              <a className="nav-link" href="/">
-                Login
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/maker">
-                Card Maker
-              </a>
-            </li>
+            <NavItem link="/maker">Card Maker</NavItem>
+            <NavItem link={"/mainpage"}>Main page</NavItem>
+            <NavItem link={"/"}>Login</NavItem>
             <li>
               <ThemeIcon />
             </li>
