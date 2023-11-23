@@ -9,7 +9,7 @@ function CardGrid({ cards, click, button_text }) {
           <div className="col" key={index}>
             {" "}
             <Card
-              key={crypto.getRandomValues(new Uint32Array(1))[0]}
+              key={index}
               data={card}
               click={() => click(card.id)}
               button_text={button_text}
