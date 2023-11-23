@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { login, register } from "../api/api";
 
 function Login() {
+  let dragged = false;
+
   async function logHandler(apiFunction) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -22,10 +24,67 @@ function Login() {
     window.location.replace("/mainpage");
   }
 
+  function dragElement(e) {
+    var elmnt = document.getElementById("card");
+    var pos1 = 0,
+      pos2 = 0,
+      pos3 = 0,
+      pos4 = 0;
+    elmnt.style.position = "absolute";
+
+    if (dragged === false) {
+      elmnt.style.top = elmnt.getBoundingClientRect().y / 1.63 + "px";
+      elmnt.style.left = elmnt.getBoundingClientRect().x / 1.23 + "px";
+      dragged = true;
+    }
+
+    if (document.getElementById(elmnt.id + "header")) {
+      // if present, the header is where you move the DIV from:
+      document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+      // otherwise, move the DIV from anywhere inside the DIV:
+      elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // calculate the new cursor position:
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      // set the element's new position:
+      elmnt.style.top = elmnt.offsetTop - pos2 + "px";
+      elmnt.style.left = elmnt.offsetLeft - pos1 + "px";
+    }
+
+    function closeDragElement() {
+      // stop moving when mouse button is released:
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+
   return (
     <div className="container">
-      <div className="card">
-        <div className="card-header"></div>
+      <div className="card shadow" id="card">
+        <div
+          id="cardheader"
+          className="card-header"
+          onClick={dragElement}
+        ></div>
         <div className="card-body mt-4">
           <h5 className="card-title">Welcome to untitled card game!</h5>
           <p className="card-text mb-5">
