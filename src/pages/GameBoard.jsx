@@ -1,96 +1,134 @@
-let currentPlayer = 1;
-let hasPlayed = false;
-let player1Mana = 0;
-let player2Mana = 0;
-let maxMana = 0;
-let player1Health = 30;
-let player2Health = 30;
-let player1Hand = [];
-let player2Hand = [];
-let player1Field = [];
-let player2Field = [];
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {getAllCards} from "../api/api.js";
 
-function updateManaDisplay() {
-    document.getElementById('currentMana').textContent = currentPlayer === 1 ? player1Mana : player2Mana;
-    document.getElementById('maxMana').textContent = maxMana;
-}
+function GameBoard() {
+    const [gameState, setGameState] = useState({
+        currentPlayer: 1,
+        player1Mana: 0,
+        player2Mana: 0,
+        maxMana: 0,
+        player1Health: 30,
+        player2Health: 30,
+        player1Hand: [],
+        player2Hand: [],
+        player1Field: [],
+        player2Field: [],
+    });
 
-function gainMana() {
-    maxMana++;
-    if (currentPlayer === 1) player1Mana = maxMana;
-    else player2Mana = maxMana;
-    updateManaDisplay();
-}
+    const allCards = getAllCards()
+    function initializePlayerHands() {
+        for (let i = 0; i < initialHandSize; i++) {
+            // Randomly select a card from the available cards
+            const randomCard = allCards[Math.floor(Math.random() * allCards.length)];
+            for (let j = 0; j < 4; j++) {
+                // Add the card to the player's hand
+                gameState.player1Hand.push(randomCard);
+            }
+            const randomCardOpponent = allCards[Math.floor(Math.random() * allCards.length)];
+            for (let j = 0; j < 4; j++) {
+                // Add the card to the player's hand
+                gameState.player2Hand.push(randomCardOpponent);
+            }
 
-function playCard(card, player) {
-    const hand = player === 1 ? player1Hand : player2Hand;
-    const field = player === 1 ? player1Field : player2Field;
-    if (hand.includes(card) && (player === 1 ? player1Mana : player2Mana) >= card.manaCost) {
-        hand.splice(hand.indexOf(card), 1);
-        field.push(card);
-        updateFieldDisplay();
-        updateHandDisplay();
-    }
-}
 
-function attackEnemy(attackingCard, enemyCard) {
-    enemyCard.health -= attackingCard.damage;
-}
-
-function handlePlayerDamage() {
-    const opponentPlayerHealth = currentPlayer === 1 ? player2Health : player1Health;
-    opponentPlayerHealth -= 1;
-}
-
-function activateField() {
-    const currentField = currentPlayer === 1 ? player1Field : player2Field;
-    const opponentField = currentPlayer === 1 ? player2Field : player1Field;
-    if (opponentField.length > 0) {
-        const enemyCardToAttack = opponentField[0];
-        currentField.forEach(card => {
-            attackEnemy(card, enemyCardToAttack);
-        });
-    } else {
-        handlePlayerDamage();
-    }
-    player1Field = player1Field.filter(card => card.health > 0);
-    player2Field = player2Field.filter(card => card.health > 0);
-}
-
-document.getElementById('endTurnBtn').addEventListener('click', function () {
-    if (!hasPlayed) {
-        const currentCards = currentPlayer === 1 ? player1Field : player2Field;
-        currentCards.forEach(card => {
-            playCard(card, currentPlayer);
-        });
-        hasPlayed = true;
-        if (hasPlayed && player1Field.length > 0 && player2Field.length > 0) {
-            activateField();
-            switchTurn();
         }
-    } else {
-        console.log("You've already played this turn.");
+        // Set the player's hand in the game state or wherever you are storing player information
+        setGameState((prevState) => ({
+            ...prevState,
+            [player === 1 ? 'player1Hand' : 'player2Hand']: playerHand,
+        }));
     }
-});
 
-function switchTurn() {
-    currentPlayer = 3 - currentPlayer;
-    hasPlayed = false;
+    function nextRound() {
+        // Draw a new card for each player and add it to their hand
+        const newCardPlayer1 = drawCard();
+        const newCardPlayer2 = drawCard();
+
+        setGameState((prevState) => ({
+            ...prevState,
+            player1Hand: [...prevState.player1Hand, newCardPlayer1],
+            player2Hand: [...prevState.player2Hand, newCardPlayer2],
+        }));
+
+        // Call the gainMana method for both players
+        gainMana(1);
+        gainMana(2);
+
+        // Update the UI or perform any other actions as needed
+        updateHandDisplay();
+        updateManaDisplay();
+    }
+
+    function drawCard() {
+        // maybe have it somehow choose a card that isnt already there
+        //Maybe have a minimum card size requirement?
+        const availableCards = getAllCards();
+        return availableCards[Math.floor(Math.random() * availableCards.length)];
+    }
+
+    function updateHandDisplay() {
+        return (
+            <div>
+                <h2>Player 1 Hand:</h2>
+                <ul>
+                    {gameState.player1Hand.map((card) => (
+                        <li key={card.id}>{card.name}</li>
+                    ))}
+                </ul>
+
+                <h2>Player 2 Hand:</h2>
+                <ul>
+                    {gameState.player2Hand.map((card) => (
+                        <li key={card.id}>{card.name}</li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+    function updateManaDisplay() {
+        return (
+            <div>
+                Mana: <span id="currentMana">{gameState.currentPlayer === 1 ? gameState.player1Mana : gameState.player2Mana}</span>/
+                <span id="maxMana">{gameState.maxMana}</span>
+            </div>
+        );
+    }
+
+    function gainMana(player) {
+        setGameState((prevState) => ({
+            ...prevState,
+            maxMana: prevState.maxMana + 1,
+            player1Mana: player === 1 ? prevState.player1Mana + 1 : prevState.player1Mana,
+            player2Mana: player === 2 ? prevState.player2Mana + 1 : prevState.player2Mana,
+        }));
+        updateManaDisplay();
+    }
+
+    function playCard(card, player) {
+        const hand = player === 1 ? gameState.player1Hand : gameState.player2Hand;
+        const field = player === 1 ? gameState.player1Field : gameState.player2Field;
+
+        if (hand.includes(card) && (player === 1 ? gameState.player1Mana : gameState.player2Mana) >= card.manaCost) {
+            hand.splice(hand.indexOf(card), 1);
+            field.push(card);
+            //TODO: more ui?
+        }
+    }
+
+    //TODO: Add more functions
+
+    return (
+        <div className="container">
+            <h1>Game Board</h1>
+            <hr></hr>
+            <div className="row mt-4 mb-4">
+                {
+                    //html
+                }
+            </div>
+        </div>
+    );
 }
 
-function updateFieldDisplay() {
-    // Implement this function if you want to update the display of cards on the field
-}
-
-function updateHandDisplay() {
-    // Implement this function if you want to update the display of cards in hand
-}
-
-// Example: Initialize cards
-const card1 = { name: 'Card A', damage: 3, health: 5, manaCost: 2 };
-const card2 = { name: 'Card B', damage: 2, health: 4, manaCost: 1 };
-player1Hand.push(card1, card2);
-
-console.log(`It's now Player ${currentPlayer}'s turn.`);
-gainMana();
-updateManaDisplay();
+export default GameBoard;
