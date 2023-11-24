@@ -10,6 +10,12 @@ function CardMaker() {
   const [image, setImage] = useState(img);
   const [mana, setMana] = useState(0);
 
+  document.addEventListener("DOMContentLoaded", function () {
+    if (sessionStorage.getItem("user") === null) {
+      window.location.replace("/");
+    }
+  });
+
   useEffect(() => {
     async function loadCards() {
       const allCards = await getAllCards();
@@ -59,6 +65,9 @@ function CardMaker() {
     };
 
     createCard(data);
+    $("#cardParent")
+      .find(".form-control")
+      .each((index, element) => (element.value = ""));
   }
 
   function deleteCardHandler(id) {
@@ -72,8 +81,15 @@ function CardMaker() {
       <div className="row mt-4 mb-4">
         <div className="col-sm-4"></div>
         <div id="cardParent" className="col-sm-4">
-          <div className="card" style={{ width: "18rem" }}>
-            <img src={image || img} className="card-img img"></img>
+          <div
+            className="card"
+            style={{
+              width: "18rem",
+              boxShadow: "0px 2px 2px 1.2px black",
+              minHeight: "100%",
+            }}
+          >
+            <img src={image} className="card-img img"></img>
             <div
               className="card-img-overlay"
               style={{ height: "5%", marginTop: "-4%" }}
