@@ -22,6 +22,9 @@ function Card({ data, click, button_text }) {
           <img src={data?.image_url || img} className="card-img-top img"></img>
         </div>
         <div className="card-img-overlay" style={{ height: "10%" }}>
+          <div className="text-end id-number">
+            <label>{data?.id || NaN}</label>
+          </div>
           {(Array(data?.cost).fill(1) || [1, 2]).map((index) => {
             return (
               <ManaIcon key={crypto.getRandomValues(new Uint32Array(1))[0]} />
