@@ -88,7 +88,7 @@
       "id": 3844971473,
       "status": "NOT_STARTED",
       "againstAI": true,
-      "currentPlayer": 0,
+      "currentPlayer": 1,
       "maxMana": 0,
       "players": [
         {
@@ -111,7 +111,7 @@
       "id": 2126652442,
       "status": "NOT_STARTED",
       "againstAI": true,
-      "currentPlayer": 0,
+      "currentPlayer": 1,
       "maxMana": 0,
       "players": [
         {
@@ -134,7 +134,7 @@
       "id": 1121190229,
       "status": "NOT_STARTED",
       "againstAI": true,
-      "currentPlayer": 0,
+      "currentPlayer": 1,
       "maxMana": 0,
       "players": [
         {
@@ -157,7 +157,7 @@
       "id": 903179813,
       "status": "NOT_STARTED",
       "againstAI": true,
-      "currentPlayer": 0,
+      "currentPlayer": 1,
       "maxMana": 0,
       "players": [
         {
@@ -180,7 +180,7 @@
       "id": 523497162,
       "status": "NOT_STARTED",
       "againstAI": false,
-      "currentPlayer": 0,
+      "currentPlayer": 1,
       "maxMana": 0,
       "players": [
         {
