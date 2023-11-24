@@ -16,12 +16,12 @@ function UserInformation(props) {
           <tbody>
             <tr>
               <td>ID</td>
-              <td>{user.id}</td>
+              <td>{user?.id}</td>
               <td></td>
             </tr>
             <tr>
               <td>Name</td>
-              <td>{user.name}</td>
+              <td>{user?.name}</td>
               <td>
                 <input type="text" id="name" placeholder="New name" />
                 <button id="changeName" onClick={changeName}>
@@ -31,7 +31,7 @@ function UserInformation(props) {
             </tr>
             <tr>
               <td>Password</td>
-              <td>{user.password}</td>
+              <td>{user?.password}</td>
               <td>
                 <input type="password" id="password" placeholder="New password" />
                 <button id="changePassword" onClick={changePassword}>

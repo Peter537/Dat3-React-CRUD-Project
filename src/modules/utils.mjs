@@ -1,3 +1,19 @@
+export async function get(url, callback) {
+  await fetchData(url, callback);
+}
+
+export async function post(url, callback, body) {
+  await fetchData(url, callback, "POST", body);
+}
+
+export async function put(url, body) {
+  await fetchData(url, () => {}, "PUT", body);
+}
+
+export async function deleteData(url) {
+  await fetchData(url, () => {}, "DELETE");
+}
+
 export async function fetchData(url, callback, method, body) {
   const headers = { Accept: "application/json" };
   if (method === "POST" || method === "PUT") {
