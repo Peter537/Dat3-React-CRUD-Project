@@ -1,5 +1,5 @@
 // API
-import { fetchData } from "../modules/utils.mjs";
+import { deleteData, fetchData, get, post, put } from "../modules/utils.mjs";
 
 const BASE_URL = "http://localhost:3001/";
 
@@ -88,20 +88,14 @@ export async function deleteCard(cardId) {
 // #region MainPage
 
 export async function createGame(game) {
-  const url = `${BASE_URL}game`;
-  const method = "POST";
-  const body = game;
-
-  await fetchData(url, () => {}, method, body);
+  await post(`${BASE_URL}game`, () => {}, game);
 }
 
 async function readAllGames() {
-  const url = `${BASE_URL}game`;
   let games = [];
-  await fetchData(url, (data) => {
+  await get(`${BASE_URL}game`, (data) => {
     games = data;
   });
-
   return games;
 }
 
@@ -120,37 +114,23 @@ export async function readGamesUserIsNotIn(userId) {
 }
 
 export async function deleteGame(gameId) {
-  const url = `${BASE_URL}game/${gameId}`;
-  const method = "DELETE";
-
-  await fetchData(url, () => {}, method);
+  await deleteData(`${BASE_URL}game/${gameId}`);
 }
 
 export async function updateUserInfo(user) {
-  const url = `${BASE_URL}user/` + user.id;
-  const method = "PUT";
-  const body = user;
-
-  // Hvordan opdateres user med denne slags db?
-  await fetchData(url, () => {}, method, body);
+  await put(`${BASE_URL}user/${user.id}`, user);
 }
 
 export async function getGameById(gameId) {
-  const url = `${BASE_URL}game/${gameId}`;
   let game = null;
-  await fetchData(url, (data) => {
+  await get(`${BASE_URL}game/${gameId}`, (data) => {
     game = data;
   });
-
   return game;
 }
 
 export async function updateGame(game) {
-  const url = `${BASE_URL}game/${game.id}`;
-  const method = "PUT";
-  const body = game;
-
-  await fetchData(url, () => {}, method, body);
+  await put(`${BASE_URL}game/${game.id}`, game);
 }
 
 // #endregion
