@@ -39,7 +39,7 @@ function MainPage() {
       // STATUS: NOT_TAKEN, NOT_STARTED, IN_PROGRESS, FINISHED
       status: "NOT_STARTED",
       againstAI: againstAI,
-      currentPlayer: 0,
+      currentPlayer: 1,
       maxMana: 0,
       players: [
         {
@@ -107,18 +107,33 @@ function MainPage() {
   }
 
   return (
-    <>
+    <div className="container row">
       <h1>Main Page</h1>
-      <h2>Create new Game</h2>
-      <button onClick={() => createNewGame(true)}>Against AI</button>
-      <button onClick={() => createNewGame(false)}>Against Player</button>
-      <h2>User Information</h2>
-      <UserInformation user={user} changeName={changeName} changePassword={changePassword} />
-      <h2>Your Games</h2>
-      <YourGames user={user} games={games} surrender={deleteAGame} joinGame={joinGame} />
+      <div className="row" style={{ marginBottom: "40px" }}>
+        <h2>Create new Game</h2>
+        <div className="row">
+          <div className="col-4"></div>
+          <button className="btn btn-primary col-2" onClick={() => createNewGame(true)} style={{ marginRight: "10px" }}>
+            Against AI
+          </button>
+          <button className="btn btn-primary col-2" onClick={() => createNewGame(false)} style={{ marginLeft: "10px" }}>
+            Against Player
+          </button>
+        </div>{" "}
+      </div>
+      <div className="row" style={{ marginBottom: "40px" }}>
+        <div className="col-6">
+          <h2>User Information</h2>
+          <UserInformation user={user} changeName={changeName} changePassword={changePassword} />
+        </div>
+        <div className="col-6">
+          <h2>Your Games</h2>
+          <YourGames user={user} games={games} surrender={deleteAGame} joinGame={joinGame} />
+        </div>
+      </div>
       <h2>Find Games</h2>
       <FindGames findGames={findGames} loadFindGames={loadFindGames} joinOtherGame={joinOtherGame} />
-    </>
+    </div>
   );
 }
 

@@ -16,7 +16,7 @@ function CardGrid({ cards, click, button_text, max_cards = 100 }) {
       style={{ minWidth: "var(--bs-breakpoint-xl)" }}
       id="card-grid"
     >
-      {cards.slice(0, max_cards).map((card, index) => {
+      {(cards?.slice(0, max_cards) || [{}]).map((card, index) => {
         return (
           <div className="col col-sm-auto" key={index}>
             <Card
