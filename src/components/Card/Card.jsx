@@ -38,7 +38,7 @@ function Card({ data, click, button_text }) {
         </div>
         <div className="mt-2 number">
           <HealthIcon />
-          <label>{data?.health || 0}</label>
+          <label className="ms-1">{data?.health || 0}</label>
 
           <AttackIcon />
           <label>{data?.attack || 0}</label>

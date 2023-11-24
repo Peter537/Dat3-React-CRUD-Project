@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wgt@600&display=swap');
 
 .number {
-    font-family: "Sofia";
+    font-family: "Sofia", sans-serif;
 }
 
 .text {
-    font-family: "Caveat";
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
 }
 
 .img {
