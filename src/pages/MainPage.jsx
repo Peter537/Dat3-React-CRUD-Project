@@ -39,7 +39,7 @@ function MainPage() {
       // STATUS: NOT_TAKEN, NOT_STARTED, IN_PROGRESS, FINISHED
       status: "NOT_STARTED",
       againstAI: againstAI,
-      currentPlayer: 0,
+      currentPlayer: 1,
       maxMana: 0,
       players: [
         {
