@@ -6,6 +6,10 @@ import "./Card.css";
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
 ></link>;
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Sofia"
+></link>;
 
 function Card({ data, click, button_text }) {
   return (
@@ -21,15 +25,20 @@ function Card({ data, click, button_text }) {
         <div>
           <img src={data?.image_url || img} className="card-img-top img"></img>
         </div>
-        <div className="card-img-overlay" style={{ height: "10%" }}>
+        <div
+          className="card-img-overlay"
+          style={{ height: "10%", marginTop: "-5%" }}
+        >
           <div className="text-end id-number">
             <label>{data?.id || NaN}</label>
           </div>
-          {(Array(data?.cost).fill(1) || [1, 2]).map((index) => {
-            return (
-              <ManaIcon key={crypto.getRandomValues(new Uint32Array(1))[0]} />
-            );
-          })}
+          <div className="responsive-background">
+            {(Array(data?.cost).fill(1) || [1, 2]).map((index) => {
+              return (
+                <ManaIcon key={crypto.getRandomValues(new Uint32Array(1))[0]} />
+              );
+            })}
+          </div>
         </div>
         <div className="mt-2">
           <HealthIcon />
