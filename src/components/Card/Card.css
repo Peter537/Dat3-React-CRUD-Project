@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wgt@600&display=swap');
+
+.number {
+    font-family: "Sofia";
+}
+
+.text {
+    font-family: "Caveat";
+}
+
 .img {
     height: 250px;
     max-height: 70%;
@@ -16,7 +27,6 @@
     padding-top: 0.1rem;
     font-size: 1rem;
     font-weight: 500;
-    font-family: "Sofia";
 }
 
 .responsive-background {

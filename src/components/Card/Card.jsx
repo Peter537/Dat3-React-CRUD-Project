@@ -6,10 +6,6 @@ import "./Card.css";
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
 ></link>;
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Sofia"
-></link>;
 
 function Card({ data, click, button_text }) {
   return (
@@ -29,7 +25,7 @@ function Card({ data, click, button_text }) {
           className="card-img-overlay"
           style={{ height: "10%", marginTop: "-5%" }}
         >
-          <div className="text-end id-number">
+          <div className="text-end id-number number">
             <label>{data?.id || NaN}</label>
           </div>
           <div className="responsive-background">
@@ -40,7 +36,7 @@ function Card({ data, click, button_text }) {
             })}
           </div>
         </div>
-        <div className="mt-2">
+        <div className="mt-2 number">
           <HealthIcon />
           <label>{data?.health || 0}</label>
 
@@ -49,7 +45,7 @@ function Card({ data, click, button_text }) {
         </div>
         <div className="card-body">
           <h5 className="card-title">{data?.name || "Card title"}</h5>
-          <p className="card-text">
+          <p className="card-text text">
             {data?.desc ||
               "Some quick example text to build on the card title and make up the bulk of the card's content."}
           </p>
