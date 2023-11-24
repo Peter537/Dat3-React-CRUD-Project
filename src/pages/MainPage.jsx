@@ -19,7 +19,6 @@ function MainPage() {
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("user")));
 
   useEffect(() => {
-    console.log("useEffect");
     sessionStorage.removeItem("gameId"); // Reset game session storage (if any game is stored)
     if (user === undefined || user === null) {
       window.location.replace("/"); // If user is not logged in, redirect to login page
@@ -27,7 +26,6 @@ function MainPage() {
     }
 
     async function loadGames() {
-      console.log("getGames");
       let games = await readGamesByUser(user.id);
       setGames(games);
     }
@@ -60,41 +58,33 @@ function MainPage() {
         },
       ],
     };
-    console.log("game", game);
     await createGame(game);
     setGames([...games, game]);
   }
 
   function changeName() {
-    console.log("changeName");
-    let newName = document.getElementById("name").value;
-    const { id, password } = user;
-    let newUser = { id: id, name: newName, password: password };
-    sessionStorage.setItem("user", JSON.stringify(newUser));
-    updateUserInfo(newUser);
-    setUser(newUser);
+    handleChange("name", document.getElementById("name").value);
     document.getElementById("name").value = "";
   }
 
   function changePassword() {
-    console.log("changePassword");
-    let newPassword = document.getElementById("password").value;
-    const { id, name } = user;
-    let newUser = { id: id, name: name, password: newPassword };
-    sessionStorage.setItem("user", JSON.stringify(newUser));
-    updateUserInfo(newUser);
-    setUser(newUser);
+    handleChange("password", document.getElementById("password").value);
     document.getElementById("password").value = "";
   }
 
+  function handleChange(name, value) {
+    let newUser = { ...user, [name]: value };
+    setUser(newUser);
+    updateUserInfo(newUser);
+    sessionStorage.setItem("user", JSON.stringify(newUser));
+  }
+
   async function loadFindGames() {
-    console.log("loadFindGames");
     let foundGames = await readGamesUserIsNotIn(user.id);
     setFindGames(foundGames);
   }
 
   async function deleteAGame(id) {
-    console.log("deleteGame");
     await deleteGame(id);
     setGames(games.filter((game) => game.id !== id));
   }
@@ -123,11 +113,7 @@ function MainPage() {
       <button onClick={() => createNewGame(true)}>Against AI</button>
       <button onClick={() => createNewGame(false)}>Against Player</button>
       <h2>User Information</h2>
-      {user === undefined ? (
-        ""
-      ) : (
-        <UserInformation user={user} changeName={changeName} changePassword={changePassword} />
-      )}
+      <UserInformation user={user} changeName={changeName} changePassword={changePassword} />
       <h2>Your Games</h2>
       <YourGames user={user} games={games} surrender={deleteAGame} joinGame={joinGame} />
       <h2>Find Games</h2>
