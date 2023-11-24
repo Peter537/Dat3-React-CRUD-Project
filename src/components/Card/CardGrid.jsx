@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
-import "../../../node_modules/jquery/dist/jquery.js";
-import "../../../node_modules/jquery-ui/dist/jquery-ui.js";
+import "../../../node_modules/jquery/dist/jquery.min.js";
+import "../../../node_modules/jquery-ui/dist/jquery-ui.min.js";
 
 // https://getbootstrap.com/docs/5.3/components/card/#grid-cards
 function CardGrid({ cards, click, button_text, max_cards = 100 }) {
