@@ -51,7 +51,7 @@ function Card({ data, click, button_text }) {
           </p>
         </div>
         <button
-          className="btn btn-primary"
+          className="btn btn-cstm-primary"
           onClick={click || (() => alert("No actions"))}
         >
           {button_text || "Go somewhere"}

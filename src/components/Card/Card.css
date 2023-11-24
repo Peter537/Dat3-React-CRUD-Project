@@ -1,38 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Sofia&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Sofia&display=swap");
 
 .number {
-    font-family: "Sofia", sans-serif;
+  font-family: "Sofia", sans-serif;
 }
 
 .text {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: medium;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
 }
 
 .img {
-    height: 250px;
-    max-height: 70%;
+  height: 250px;
+  max-height: 70%;
 }
 
+[data-bs-theme="light"] {
+  --bs-btn-cstm-bg: #ea801d;
+  --bs-btn-cstm-border-color: #df7818;
+  --bs-btn-cstm-hover-color: #fff;
+  --bs-btn-cstm-hover-bg: #b86314;
+  --bs-btn-cstm-hover-border-color: #ee8421;
+  --bs-btn-cstm-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-cstm-active-color: #fff;
+  --bs-btn-cstm-active-bg: #df7818;
+  --bs-btn-cstm-active-border-color: #b86314;
+  --bs-btn-cstm-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-cstm-disabled-color: #fff;
+  --bs-btn-cstm-disabled-bg: #b86314;
+  --bs-btn-cstm-disabled-border-color: #b86314;
+}
+
+[data-bs-theme="dark"] {
+  --bs-btn-cstm-bg: #8e4c0f;
+  --bs-btn-cstm-border-color: #df7818;
+  --bs-btn-cstm-hover-color: #fff;
+  --bs-btn-cstm-hover-bg: #b86314;
+  --bs-btn-cstm-hover-border-color: #ee8421;
+  --bs-btn-cstm-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-cstm-active-color: #fff;
+  --bs-btn-cstm-active-bg: #df7818;
+  --bs-btn-cstm-active-border-color: #b86314;
+  --bs-btn-cstm-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-cstm-disabled-color: #fff;
+  --bs-btn-cstm-disabled-bg: #b86314;
+  --bs-btn-cstm-disabled-border-color: #b86314;
+}
+
+.btn-cstm-primary {
+  --bs-btn-bg: var(--bs-btn-cstm-bg);
+  --bs-btn-border-color: var(--bs-btn-cstm-border-color);
+  --bs-btn-hover-color: var(--bs-btn-cstm-hover-color);
+  --bs-btn-hover-bg: var(--bs-btn-cstm-hover-bg);
+  --bs-btn-hover-border-color: var(--bs-btn-cstm-hover-border-color);
+  --bs-btn-focus-shadow-rgb: var(--bs-btn-cstm-focus-shadow-rgb);
+  --bs-btn-active-color: var(--bs-btn-cstm-active-color);
+  --bs-btn-active-bg: var(--bs-btn-cstm-active-bg);
+  --bs-btn-active-border-color: var(--bs-btn-cstm-active-border-color);
+  --bs-btn-active-shadow: var(--bs-btn-cstm-active-shadow);
+  --bs-btn-disabled-color: var(--bs-btn-cstm-disabled-color);
+  --bs-btn-disabled-bg: var(--bs-btn-cstm-disabled-bg);
+  --bs-btn-disabled-border-color: var(--bs-btn-cstm-disabled-border-color);
+}
 .sortable-placeholder {
-    background-color: rgb(var(--bs-secondary-color-rgb));
-    border-radius: 4px 4px 4px 4px;
+  background-color: rgb(var(--bs-secondary-color-rgb));
+  border-radius: 4px 4px 4px 4px;
 }
 
 .id-number {
-    position: absolute;
-    max-height: fit-content;
-    text-align: center;
-    padding-left: 0.25rem;
-    padding-top: 0.1rem;
-    font-size: 1rem;
-    font-weight: 500;
+  position: absolute;
+  max-height: fit-content;
+  text-align: center;
+  padding-left: 0.25rem;
+  padding-top: 0.1rem;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .responsive-background {
-    background-color: rgb(var(--bs-tertiary-bg-rgb), .3);
-    border-radius: 4px 4px 4px 4px;
-    border: 1px solid;
-    border-color: rgb(var(--bs-border-color-rgb), .3);
-    min-height: 26px;
+  background-color: rgb(var(--bs-tertiary-bg-rgb), 0.3);
+  border-radius: 4px 4px 4px 4px;
+  border: 1px solid;
+  border-color: rgb(var(--bs-border-color-rgb), 0.3);
+  min-height: 26px;
 }

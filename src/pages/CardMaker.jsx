@@ -98,7 +98,7 @@ function CardMaker() {
               <div className="col-sm-5">
                 <input
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn btn-cstm-primary"
                   value={"+ Mana "}
                   style={{ width: "100%" }}
                   onClick={() => setMana(mana + 1)}
@@ -107,7 +107,7 @@ function CardMaker() {
               <div className="col-sm-5">
                 <input
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn btn-cstm-primary"
                   value={"- Mana"}
                   style={{ width: "100%" }}
                   onClick={() => {
@@ -152,7 +152,7 @@ function CardMaker() {
                   }
                 ></textarea>
               </p>
-              <button className="btn btn-primary" onClick={createHandler}>
+              <button className="btn btn-cstm-primary" onClick={createHandler}>
                 Create
               </button>
             </div>
