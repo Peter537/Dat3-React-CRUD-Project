@@ -71,13 +71,16 @@
   max-height: fit-content;
   text-align: center;
   padding-left: 0.25rem;
+  padding-right: 0.25rem;
   padding-top: 0.1rem;
   font-size: 1rem;
   font-weight: 500;
+  border-right: 1px solid;
+  border-color: rgb(var(--bs-border-color-rgb), 0.3);
 }
 
 .responsive-background {
-  background-color: rgb(var(--bs-tertiary-bg-rgb), 0.3);
+  background-color: rgb(var(--bs-tertiary-bg-rgb), 0.8);
   border-radius: 4px 4px 4px 4px;
   border: 1px solid;
   border-color: rgb(var(--bs-border-color-rgb), 0.3);
