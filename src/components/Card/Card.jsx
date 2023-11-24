@@ -11,10 +11,10 @@ function Card({ data, click, button_text }) {
   return (
     <>
       <div
-        className="card border-dark"
+        className="card border"
         style={{
           width: "18rem",
-          boxShadow: "1px 1px 1px 1px black",
+          boxShadow: "0px 2px 2px 1.2px black",
           minHeight: "100%",
         }}
       >
