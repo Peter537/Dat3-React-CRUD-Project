@@ -23,6 +23,7 @@ function App() {
           <Route path="/maker" element={<CardMaker />} />
           <Route path="/mainpage" element={<MainPage />} />
           <Route path="/game" element={<GameBoard />} />
+          <Route path="/game/:id" element={<GameBoard />} />
         </Routes>
       </BrowserRouter>
       <Header />
