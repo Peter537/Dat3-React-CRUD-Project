@@ -37,7 +37,7 @@ function MainPage() {
     const game = {
       id: crypto.getRandomValues(new Uint32Array(1))[0],
       // STATUS: NOT_TAKEN, NOT_STARTED, IN_PROGRESS, FINISHED
-      status: "NOT_STARTED",
+      status: "NOT_TAKEN",
       againstAI: againstAI,
       currentPlayer: 1,
       maxMana: 0,
@@ -99,6 +99,7 @@ function MainPage() {
     let game = await getGameById(gameId);
     if (game.players[1].id === 0) {
       game.players[1].id = user.id;
+      game.status = "NOT_STARTED";
       await updateGame(game);
       setGames([...games, game]);
       sessionStorage.setItem("gameId", gameId);
