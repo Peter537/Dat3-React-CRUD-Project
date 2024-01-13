@@ -23,7 +23,7 @@
   ],
   "card": [
     {
-      "name": "asdf",
+      "name": "Stout",
       "desc": "Some quick example text to build on the card title and make up the bulk of the card's content.",
       "attack": "1",
       "health": "1",
@@ -59,7 +59,7 @@
       "health": "0",
       "cost": 0,
       "createdBy": "test",
-      "image_url": "/src/components/Card/placeholder.svg",
+      "image_url": "/src/components/Card/placeholder.png",
       "id": 5
     },
     {
@@ -81,6 +81,26 @@
       "createdBy": "test",
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg",
       "id": 7
+    },
+    {
+      "name": "Axe",
+      "desc": "Axe is here to chop small cards! Axe has not lost his strength after becoming not Axe!!!!!",
+      "attack": "5",
+      "health": "3",
+      "cost": 3,
+      "createdBy": "test",
+      "image_url": "https://static.wikia.nocookie.net/dota2_gamepedia/images/2/23/Axe_icon.png",
+      "id": 8
+    },
+    {
+      "name": "Very long text",
+      "desc": "Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "attack": "0",
+      "health": "10",
+      "cost": 3,
+      "createdBy": "test",
+      "image_url": "https://sell.g2.com/hubfs/iStock-1054858914.jpg",
+      "id": 9
     }
   ],
   "game": [
